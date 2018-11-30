@@ -17,7 +17,9 @@
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
 
 
 
@@ -30,19 +32,20 @@ your head strikes the steering wheel leaving you dazed and it takes you a moment
 you try to turn your car back but the engine won&#39;t start.
 [[Stay in the car until morning]]
 [[Exit the car and search for help]]
-(set: $food = 0)</tw-passagedata><tw-passagedata pid="2" name="Stay in the car until morning" tags="" position="1105,305" size="100,100">You decide to stay in the car overnight
+(set: $food = 0, $metJim = false, $KyleShot = false, $PlayerShot = false, $lighter = false)</tw-passagedata><tw-passagedata pid="2" name="Stay in the car until morning" tags="" position="1105,305" size="100,100">You decide to stay in the car overnight
 its incredibly cold and uncomfortable but you try to make the best of the situation and get some sleep.
 An icy wind occasionally rocks your car and snow continues to fall and build up around the car.
 Between the gusts of wind, the howling of wolves, the hooting of owls and the other unnerving sounds of the forest gives you an uneasy feeling. Despite it all, you eventually manage to fall asleep.
 In the morning, you wake up to the cold interior of your car. Your shivering with the cold and your limbs feel numb and stiff. you rub and breathe into your hands in an effort to warm them up but you notice that your hands have begun to turn blue.
 (set: $frostBite = true)
 [[Open the Glove box-&gt;trash]]
-[[open the car door]]</tw-passagedata><tw-passagedata pid="3" name="Exit the car and search for help" tags="" position="1710,138" size="100,100">You keep walking in the snowstorm. You eventually lose your footing, slide down into a ditch and sprain your ankle. You scream in agony. Soon your scream followed by the howling of the wolves gave you a shiver down your spine.
+[[open the car door]]</tw-passagedata><tw-passagedata pid="3" name="Exit the car and search for help" tags="" position="1710,137" size="100,100">You keep walking in the snowstorm. You eventually lose your footing, slide down into a ditch and sprain your ankle. You scream in agony. Soon your scream followed by the howling of the wolves gave you a shiver down your spine.
 You try to stand up, but it&#39;s no use.
 
 You hear steps
-
-[[Jim finds you]]</tw-passagedata><tw-passagedata pid="4" name="trash" tags="" position="945,411" size="100,100">You rummage through the trash and find a lighter.
+There&#39;s a man coming through the tree&#39;s.
+He introduces hmself as [[Jim]]
+&lt;audio src=&quot;zapsplat_foley_footstep_single_boot_wet_slushy_snow_007_25375.mp3&quot; autoplay loop&gt;</tw-passagedata><tw-passagedata pid="4" name="trash" tags="" position="945,411" size="100,100">You rummage through the trash and find a lighter.
 (set: $lighter = true)
 [[open the car door]]</tw-passagedata><tw-passagedata pid="5" name="open the car door" tags="" position="1104,611" size="100,100">You try to open the door of the car but you&#39;re hands are still and clumsy. It&#39;s difficult to pull the handle and the snow that built up overnight makes it hard to [[push]] the door open.</tw-passagedata><tw-passagedata pid="6" name="push" tags="" position="1098,750" size="100,100">Pushing with your hands is no good. You kick the door open instead. The door swings open pushing the snow aside allowing you to [[leave the car]]</tw-passagedata><tw-passagedata pid="7" name="leave the car" tags="" position="1099,884" size="100,100">The wind and snow has stopped for now but there is a think blanket of snow covering the landscape. It looks like a scene from a postcard.
 The peace is broken by a gunshot in the forest. It doesn&#39;t sound like it was too far away. 
@@ -58,7 +61,13 @@ You think you see the silhouette of a man. [[you call out to him to get his atte
 (else:)
 [you keep running, in hope of finding help. You eventually collapse exhausted and [[pass out]].]</tw-passagedata><tw-passagedata pid="12" name="tracks and a trail of blood" tags="" position="873,1620" size="100,100">Having no other landmarks or trails to follow, you decide to follow the blood trail. at the end of the trail you find a person sitting against a tree. For a moment you think he&#39;s dead but as you [[get closer]] you can see his steamy breath in the cold air. They are alive but unconcious</tw-passagedata><tw-passagedata pid="13" name="get closer" tags="" position="875,1743" size="100,100">The man has been shot in the arm and you guess that he has lost a lot of blood. Lacking any sort of bandage you could use, you take off your scarf and wrap it around the mans wound.
 As you tighten the scarf, the pain jolts the wounded man awake.
-[[converse]]</tw-passagedata><tw-passagedata pid="14" name="converse" tags="" position="1025,1865" size="100,100">[[Camp]]</tw-passagedata><tw-passagedata pid="15" name="Camp" tags="" position="881,1948" size="100,100">The camp is in a small clearing in the woods. There&#39;s a tent and a camp fire though the [[fire]] has gone out.</tw-passagedata><tw-passagedata pid="16" name="fire" tags="" position="882,2070" size="100,100">Kyle sits down by the fire as you try to light it using the firewood stacked nearby and the lighter you got from the glovebox of the car.
+[[Talk to him]]</tw-passagedata><tw-passagedata pid="14" name="Talk to him" tags="" position="1240,1729" size="100,100">(if: &amp;metJim is true)[It must be Kyle, He&#39;s exactly as Jim described]
+
+(if: $PlayerShot is true)[&quot;You are you? What are you doing out here?&quot; He asks. You try to explain everything that&#39;s happened to you in since the crash. &quot;Come with me I&#39;ll bandage that up for you, I&#39;m Kyle by the way&quot; He says leading you back to his [[Camp]]]
+
+(if: $KyleShot == true)[&quot;You&#39;re not Jim, Who are you?&quot; He says. You try to tell him to stay calm and that he&#39;s hurt. &quot;I know can see that!&quot; he snaps, &quot;help me up we&#39;ll go back to my camp&quot;
+
+He introduces himself as Kyle and leads you to his [[Camp]]]</tw-passagedata><tw-passagedata pid="15" name="Camp" tags="" position="972,1938" size="100,100">The camp is in a small clearing in the woods. There&#39;s a tent and a camp fire though the [[fire]] has gone out.</tw-passagedata><tw-passagedata pid="16" name="fire" tags="" position="882,2070" size="100,100">Kyle sits down by the fire as you try to light it using the firewood stacked nearby and the lighter you got from the glovebox of the car.
 Once the fire is going you both sit next to it in silence and warm yourselves.
 
 (if: $KyleShot is true and $metJim is true)
@@ -82,141 +91,153 @@ You grab the fishing rod firmly and [[try to scare away the wolf]].
 
 You start to back away slowly leaving the fish behind. When you&#39;re at a safe distance and notice the wolf is busy eating your dinner, you [[Run back to camp-&gt;leave fish]].]</tw-passagedata><tw-passagedata pid="19" name="hear screams" tags="" position="568,2519" size="100,100">You screaming from the direction of the camp. You [[Run back to camp]] as fast as you can. </tw-passagedata><tw-passagedata pid="20" name="Run back to camp" tags="" position="571,2642" size="100,100">You find Kyle being attacked by a large vicious looking wolf. he&#39;s trying to fend him off using a stick of firewood.
 [[Shoot at the wolf]]</tw-passagedata><tw-passagedata pid="21" name="Shoot at the wolf" tags="" position="573,2768" size="100,100">You shoot the wolf with the air rifle. It&#39;s not powerful enough to do any real damage but it stings him enough to scare him away.
-You catch your breath and together you [[prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="22" name="prepare the food you brought back" tags="" position="576,2884" size="100,100">While you prepare and cook the food in silence you hear a gunshot far off in the distance
-[[eat]]</tw-passagedata><tw-passagedata pid="23" name="eat" tags="" position="576,3012" size="100,100">Talk with kyle 
-blah blah blah dialogue stuff
+You catch your breath and together you [[prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="22" name="prepare the food you brought back" tags="" position="576,2884" size="100,100">While you prepare and cook the food in silence you hear a gunshot far off in the distance. Your stomcah is grumbling and the food smell surprisingly good.
+
+[[eat]]</tw-passagedata><tw-passagedata pid="23" name="eat" tags="" position="609,3000" size="100,100">(if: &amp;food is 0)[You have nothing to eat in the camp. &quot;You&#39;re a god awful hunter kid, you know that?&quot; says Kyle.]
+You both sit down by the fire and rest. You eventually pluck up the courage to ask Kyle what he&#39;s doing in the forest. &quot;I had this friend all my life, his name is Jim. But one day something happend. We were hunting and Jim brought his son along. But I made a mistake. I took a shot at deer, the bullet passed through it. I didn&#39;t know Jims son was on the other side of the deer admiring the animal. I only realises what I&#39;d done when the deer collapsed and saw him there silent clenching his chest. He didn&#39;t make it and Jim never forgave me. Ever since that day Jim has had a grudge against me and all my family. He&#39;s finally snapped too so I&#39;m hiding here hoping he&#39;ll come to his senses or die in the snow&quot;
+
 You hear another gunshot, this time much closer.
 You decide to [[leave camp before Jim finds you]] and kyle starts by putting out the fire.</tw-passagedata><tw-passagedata pid="24" name="leave camp before Jim finds you" tags="" position="577,3148" size="100,100">Kyle grabs his rifle, says to leave everything else behind and run to put some distance between them and Jim. There&#39;s no time to waste.
 [[Leave quickly with Kyle]]
 [[Quickly pick up the backpack with essential items and follow Kyle-&gt;Pack all the supplies and bring them with you]]</tw-passagedata><tw-passagedata pid="25" name="Leave quickly with Kyle" tags="" position="349,3361" size="100,100">You both begin to run away from camp.
 As you run away Jim spots you and begins to fire in your direction
 You both run as fast as you can until the you think you&#39;ve lost Jim and your both completely winded.
-[[argue]]</tw-passagedata><tw-passagedata pid="26" name="Pack all the supplies and bring them with you" tags="" position="809,3362" size="100,100">You quickly grab the backpack, that Kyle stupidly decided to leave behind. You run towards the thick bushes surrounding the camp, but just before you manage to hide, you hear the rustle of leaves and curses followed by Jim entering the clearing.
+You&#39;re sure you&#39;ve managed to lose Jim again.
+[[Keep walking]] </tw-passagedata><tw-passagedata pid="26" name="Pack all the supplies and bring them with you" tags="" position="809,3362" size="100,100">You quickly grab the backpack, that Kyle stupidly decided to leave behind. You run towards the thick bushes surrounding the camp, but just before you manage to hide, you hear the rustle of leaves and curses followed by Jim entering the clearing.
 Jim is quick to notice you, and even quicker to aim and shoot as you jump through the bushes.
 Run as fast as you can with the hindering weight of Kyle&#39;s backpack.
 You reach a frozen lake, with Jim not far behind you. The only way is to [[go straight]] over the ice. 
-Or [[lie down behind a fallen tree trunk]].</tw-passagedata><tw-passagedata pid="27" name="argue" tags="" position="346,3498" size="100,100">Arguing here
-[[Keep walking]]</tw-passagedata><tw-passagedata pid="28" name="Keep walking" tags="" position="344,3637" size="100,100">Find the ruins of an abandoned cabin in the woods
-[[collect some firewood]]</tw-passagedata><tw-passagedata pid="29" name="collect some firewood" tags="" position="344,3772" size="100,100">You go out to collect some fire wood to start a camp fire
+Or [[lie down behind a fallen tree trunk]].</tw-passagedata><tw-passagedata pid="27" name="Keep walking" tags="" position="344,3637" size="100,100">You walk together trying to cath your breath. Kyle leads the way and eventually you come to the ruins of a cabin. &quot;We&#39;ll be safe here and we&#39;&#39;l have some shelter&quot; Kyle tells you, &quot;Go [[collect some firewood]]&quot;</tw-passagedata><tw-passagedata pid="28" name="collect some firewood" tags="" position="344,3772" size="100,100">You go out to collect some fire wood to start a camp fire
 You can hear the howling of a pack of wolves in the distance
-[[return to the cabin with firewood]]</tw-passagedata><tw-passagedata pid="30" name="return to the cabin with firewood" tags="" position="346,3916" size="100,100">On your way back to the camp you can hear the howling getting closer
+[[return to the cabin with firewood]]</tw-passagedata><tw-passagedata pid="29" name="return to the cabin with firewood" tags="" position="346,3916" size="100,100">On your way back to the camp you can hear the howling getting closer
 The wolf pack is getting closer to the camp. 
 You start to run back to the cabin
-When you get back you try to [[light a fire using the lighter]] as fast as you can to keep the pack at bay.
-else [[the pack attacks]]</tw-passagedata><tw-passagedata pid="31" name="light a fire using the lighter" tags="" position="148,4077" size="100,100">The pack keep their distance but you can still occasionally hear them howling nearby.
+(if: $lighter is true)[When you get back you try to [[light a fire using the lighter]] as fast as you can to keep the pack at bay.]
+(else:)[ [[the pack attacks]] ]</tw-passagedata><tw-passagedata pid="30" name="light a fire using the lighter" tags="" position="148,4077" size="100,100">The pack keep their distance but you can still occasionally hear them howling nearby.
 more dialogue?
-[[try to sleep]]</tw-passagedata><tw-passagedata pid="32" name="the pack attacks" tags="" position="519,4083" size="100,100">As the sun goes down the Wolves come running out of the tree line and charge at you and Kyle. Kyle grabs the air rifle and shoots at one which makes it turn and run. 
+[[try to sleep]]</tw-passagedata><tw-passagedata pid="31" name="the pack attacks" tags="" position="519,4083" size="100,100">As the sun goes down the Wolves come running out of the tree line and charge at you and Kyle. Kyle grabs the air rifle and shoots at one which makes it turn and run. 
 Another jumps at you and bites you on the arm but you strike it on the head with a piece of firewood until it lets go.
 You&#39;re bleeding.
 Kyle shoots another wolf which stops it in it&#39;s tracks.
-[[You charge the remaining wolves]] swing the piece of firewood wildly at them</tw-passagedata><tw-passagedata pid="33" name="try to sleep" tags="" position="145,4205" size="100,100">In the morning, you wake up to find that Kyle is gone
-[[try to follow Kyle]]</tw-passagedata><tw-passagedata pid="34" name="try to follow Kyle" tags="" position="143,4336" size="100,100">Somehow find him later???!!!
+[[You charge the remaining wolves]] swing the piece of firewood wildly at them</tw-passagedata><tw-passagedata pid="32" name="try to sleep" tags="" position="145,4205" size="100,100">In the morning, you wake up to find that Kyle has disappeared. and he has taken all of camping equipment and his gear with him.
 
-observe him setting up a new camp
-he takes his fish rod to go fishing.
-you sneak down to his camp and [[steal the air rifle]]</tw-passagedata><tw-passagedata pid="35" name="steal the air rifle" tags="" position="137,4465" size="100,100">You grab his rifle and some ammunition and find a new hiding spot on the edge of his camp.
-[[wait for kyle to return]]</tw-passagedata><tw-passagedata pid="36" name="wait for kyle to return" tags="" position="133,4607" size="100,100">Kyle returns with a fish he caught and is about to prepare it when he notices the rifle is gone. He looks around his camp. Jim appears out of nowhere and catches Kyle off guard.
+There was a fresh fall off snow during the night but the snow has stopped now. Kyles tracks in the snow have almost been snowed over but you can still make them out.
+[[try to follow Kyle]]</tw-passagedata><tw-passagedata pid="33" name="try to follow Kyle" tags="" position="143,4336" size="100,100">You follow the tracks for well over two hours when snow begins to slowly drift down again. The snow begins to cover up Kyles tracks and just when you think you&#39;ve lost him you spot him between the trees.
+Kyle is setting up a new camp and is busy putting up the tent. You move slowly around the camp, staying out of view, and find a place to hide.
+After finishing with the tent, Kyle grabs his fishing rod and strolls into the treeline completely ignoring the dusting off snow that is falling on his camp.
+You can see that just inside his tent is Kyles air rifle.
+You sneak down to his camp and [[steal the air rifle]]</tw-passagedata><tw-passagedata pid="34" name="steal the air rifle" tags="" position="137,4465" size="100,100">You grab his rifle and some ammunition and find a new hiding spot on the edge of his camp.
+[[wait for kyle to return]]</tw-passagedata><tw-passagedata pid="35" name="wait for kyle to return" tags="" position="133,4606" size="100,100">It&#39;s not too long before Kyle returns with a fish he caught and is about to prepare it when he notices the rifle is gone. He looks around his camp. Jim appears out of the trees and catches Kyle off guard.
 He has Kyle at gunpoint and begins threatening him.
 You try to sneak up behind Jim. You get close and move around him until you have a clear shot at his hand.
-[[Take the shot]]</tw-passagedata><tw-passagedata pid="37" name="Take the shot" tags="" position="133,4757" size="100,100">You shoot Jim in the hand and the shock and pain make him drop the rifle. You run at him and knock him down then [[pick up Jim&#39;s hunting rifle]].
-</tw-passagedata><tw-passagedata pid="38" name="flare gun from Kyles bagpack" tags="" position="127,5025" size="100,100">You fire the flare gun into the air and the helicopter lands in a clearing nearby...
+[[Take the shot]]</tw-passagedata><tw-passagedata pid="36" name="Take the shot" tags="" position="133,4757" size="100,100">You shoot Jim in the hand and the shock and pain make him drop the rifle. You run at him and knock him down then [[pick up Jim&#39;s hunting rifle]].
+</tw-passagedata><tw-passagedata pid="37" name="flare gun from Kyle&#39;s bagpack" tags="" position="127,5025" size="100,100">You fire the flare gun into the air and the helicopter lands in a clearing nearby...
 
+Rescue from this nightmare awaits
 
-
-[[FIN]]</tw-passagedata><tw-passagedata pid="39" name="FIN" tags="" position="122,5361" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="stay at the car" tags="" position="1340,908" size="100,100">Not just long after, you notice somebody running across the road a stone&#39;s throw away from you. 
+[[FIN]]</tw-passagedata><tw-passagedata pid="38" name="FIN" tags="" position="88,5209" size="100,100"></tw-passagedata><tw-passagedata pid="39" name="stay at the car" tags="" position="1340,908" size="100,100">Not just long after, you notice somebody running across the road a stone&#39;s throw away from you. 
 You [[stay quiet]]
-You [[shout to get their attention]].</tw-passagedata><tw-passagedata pid="41" name="You charge the remaining wolves" tags="" position="523,4205" size="100,100">The remaining wolves turn and run away. 
+You [[shout to get their attention]].</tw-passagedata><tw-passagedata pid="40" name="You charge the remaining wolves" tags="" position="523,4205" size="100,100">The remaining wolves turn and run away. 
 Kyle bandages your bite wound on your arm.
 You both manage to start a fire. The wolf pack now keeps it&#39;s distance from the cabin but you can still occasionally hear them howling nearby.
-You eventually drift off to [[sleep]].</tw-passagedata><tw-passagedata pid="42" name="sleep" tags="" position="522,4333" size="100,100">You wake in the morning.
-You and Kyle are both hungry but left all your food in the last camp so you offer to take the rifle and try to [[Find more rabbits]] to eat.</tw-passagedata><tw-passagedata pid="43" name="Find more rabbits" tags="" position="522,4462" size="100,100">You go out and look for some rabbits to hunt.
-You find one and you decide to [[shoot it]]</tw-passagedata><tw-passagedata pid="44" name="return to the cabin" tags="" position="492,4874" size="100,100">As you are approaching the cabin you hear shouting.
-Jim has Kyle at gunpoint at the cabin and they are shouting at eacch other. You [[sneak up]] to the camp while Jim is distracted.</tw-passagedata><tw-passagedata pid="45" name="sneak up" tags="" position="491,5028" size="100,100">You approach very close to the entrance of the cabin. You decide to step in and aim your rifle at Jim.
+You eventually drift off to [[sleep]].</tw-passagedata><tw-passagedata pid="41" name="sleep" tags="" position="522,4333" size="100,100">You wake in the morning.
+You and Kyle are both hungry but left all your food in the last camp so you offer to take the rifle and try to find more rabbits to eat.
+
+You wander the woods until you manage to spot a rabbit and try to [[shoot it]]</tw-passagedata><tw-passagedata pid="42" name="return to the cabin" tags="" position="492,4874" size="100,100">As you are approaching the cabin you hear shouting.
+Jim has Kyle at gunpoint at the cabin and they are shouting at eacch other. You [[sneak up]] to the camp while Jim is distracted.</tw-passagedata><tw-passagedata pid="43" name="sneak up" tags="" position="491,5028" size="100,100">You approach very close to the entrance of the cabin. You decide to step in and aim your rifle at Jim.
 Try to talk sense into Jim, but he&#39;s having none of it.
-[[Take the shot]] </tw-passagedata><tw-passagedata pid="46" name="go straight" tags="" position="963,3504" size="100,100">You don&#39;t make it far until the ice begins to crack and crumble underneath you.
+[[Take the shot]] </tw-passagedata><tw-passagedata pid="44" name="go straight" tags="" position="963,3504" size="100,100">You don&#39;t make it far until the ice begins to crack and crumble underneath you.
 The weight of your gear eventually causes the ice to break underneath your feet and you fall into the freezing waters.
 The immediate cold shock makes you inhale involuntarily. You struggle to hold your head above the surface, feeling your heart pump blood even harder as you gulp the ice cold water.
 Your hands struggle to get a grip on the slippery ice, your limbs start to go numb as your body starts to protectively cut off blood flow from non-essential muscles.
 Is this it? Is this where I die?
 Suddenly you feel a warm and a firm hand grab onto yours. You get pulled up onto the ice sheet, saving you from drowning.
-You look up and can&#39;t believe your eyes. (if: $metJim is true)[[[It&#39;s Jim-&gt;It&#39;s Jim. IF YOU MET HIM]]] (else:)[[[It&#39;s Jim-&gt;ITS JIM IF YOU DIDN&#39;T MEET HIM]]]</tw-passagedata><tw-passagedata pid="47" name="It&#39;s Jim. IF YOU MET HIM" tags="" position="875,3662" size="100,100">Ah damn it, it&#39;s you kid. [[Why]] are you running away from me. I thought you&#39;re that son of a bitch.</tw-passagedata><tw-passagedata pid="48" name="ITS JIM IF YOU DIDN&#39;T MEET HIM" tags="" position="1064,3661" size="100,100">And who the fu** are you? Are you working with that son of a bi*ch? [[What are you doing here?]]</tw-passagedata><tw-passagedata pid="49" name="Why" tags="" position="859,3845" size="100,100">You shot me before  bla bla.[[.]]</tw-passagedata><tw-passagedata pid="50" name="What are you doing here?" tags="" position="1083,3838" size="100,100">I&#39;m not working with him, I was in a car accident. I want no part in any of what ever is going on between you and that other guy[[.]]</tw-passagedata><tw-passagedata pid="51" name="." tags="" position="970,3969" size="100,100">Jim helps you to your feet and takes you to his hut before you freeze to death. The interior of Jim&#39;s hut is warm and spacious. You stand at the entrance, shivering, waiting for Jim come out of his bedroom.
+You look up and can&#39;t believe your eyes. (if: $metJim is true)[[[It&#39;s Jim-&gt;It&#39;s Jim. IF YOU MET HIM]]] (else:)[[[It&#39;s Jim-&gt;ITS JIM IF YOU DIDN&#39;T MEET HIM]]]</tw-passagedata><tw-passagedata pid="45" name="It&#39;s Jim. IF YOU MET HIM" tags="" position="875,3662" size="100,100">Ah damn it, it&#39;s you kid. [[Why]] are you running away from me. I thought you&#39;re that son of a bitch.</tw-passagedata><tw-passagedata pid="46" name="ITS JIM IF YOU DIDN&#39;T MEET HIM" tags="" position="1064,3661" size="100,100">And who the fu** are you? Are you working with that son of a bi*ch? [[What are you doing here?]]</tw-passagedata><tw-passagedata pid="47" name="Why" tags="" position="859,3845" size="100,100">&quot;Because you&#39;re shooting at me!&quot; you scream at him. Jim rgabs your arm and [[Helps you up]].</tw-passagedata><tw-passagedata pid="48" name="What are you doing here?" tags="" position="1083,3838" size="100,100">You tell him that you&#39;re not working with him, you were in a car accident and want no part in any of what ever is going on. He [[Helps you up]] </tw-passagedata><tw-passagedata pid="49" name="Helps you up" tags="" position="970,3969" size="100,100">Jim helps you to your feet and takes you to his hut before you freeze to death. The interior of Jim&#39;s hut is warm and spacious. You stand at the entrance, shivering, waiting for Jim come out of his bedroom.
 He trows a pile of clothes at you to change into and walk towards the fireplace stoking it and throwing in new wooden logs.
-Jim begins to explain [[his story]]</tw-passagedata><tw-passagedata pid="52" name="his story" tags="" position="970,4092" size="100,100">This is who Kyle is. This is what he has done. And that is why I&#39;m trying to take him down. 
-Now I&#39;ll get you a blanket, you can [[sleep on the couch]] for today.</tw-passagedata><tw-passagedata pid="53" name="sleep on the couch" tags="" position="968,4232" size="100,100">The water pulled out all of your strenght from you, so you had no trouble falling asleep, but later in the night you were woken up by the howling of the wolves.
-You decide to [[go for a walk]] around the area to get some fresh air</tw-passagedata><tw-passagedata pid="54" name="go for a walk" tags="" position="967,4379" size="100,100">You decide to take a short round walk around the perimeter, when you get back you notice Kyle approaching the hut.
-[[Call out]] to Kyle to get his attention.
-Don&#39;t let Kyle notice you and [[follow him silently.]]</tw-passagedata><tw-passagedata pid="55" name="Call out" tags="" position="806,4560" size="100,100">You call out to Kyle and try to talk sense into him. Jim hears you and comes out with a rifle pointed out at Kyle. 
-(if: $metJim is true)[He [[shoots Kyle]] in the leg.]
-(else:)[He [[shoots Kyle and then your leg]]]</tw-passagedata><tw-passagedata pid="56" name="follow him silently." tags="" position="1138,4569" size="100,100">The front door is open, Kyle has already entered. You walk inside and notice that Jim&#39;s bedroom door is ajar. You approach on your tiptoes and find Kyle aiming Jim&#39;s rifle at Jim&#39;s head.
-You try to [[talk sense into Kyle.]]
-[[Tackle Kyle]] and try to take away the rifle.</tw-passagedata><tw-passagedata pid="57" name="shoots Kyle" tags="" position="705,4806" size="100,100">You hear the shot and that is like an impulse for you to charge towards Jim and tackle him to the ground. You [[get a hold of Jim&#39;s rifle-&gt;pick up Jim&#39;s hunting rifle]] and stop any further blood shed. </tw-passagedata><tw-passagedata pid="58" name="shoots Kyle and then your leg" tags="" position="878,4807" size="100,100">Jim: I knew you were working together, this is how he found me. Well now, you got what you deserved, helping scum like him. My job here is [[done]]. cya nerd.</tw-passagedata><tw-passagedata pid="59" name="pick up Jim&#39;s hunting rifle" tags="" position="128,4881" size="100,100">As you have Jim at gunpoint you can hear a Helicopter approaching. It&#39;s a rescue helicopter.
-You grab the [[flare gun from Kyles bagpack]]</tw-passagedata><tw-passagedata pid="60" name="done" tags="" position="808,5209" size="100,100">The sharp pain in your thigh was followed by a warm stream flowing down your leg and the melting of the snow around you. It started turning the color of dark crimson in a matter of moments. After a few seconds, the wound no longer bothered you as much, the pain started to go away, so was your consciousness.
-Your heart beat started to slow down as your vision faded into darkness. You bleed out beside a stranger in a strange land, never to be discovered, cold and forgotten.</tw-passagedata><tw-passagedata pid="61" name="talk sense into Kyle." tags="" position="1024,4796" size="100,100">Convo with Kyle here
-&gt;
-&gt;
+Jim begins to explain [[his story]].</tw-passagedata><tw-passagedata pid="50" name="his story" tags="" position="969,4091" size="100,100">He asks you what Kyle told you about him. You tell him about his son who died in the hunting accident and how he blames Kyle.
+&quot;That&#39;s only half the story&quot; Jim snaps &quot;Kyle wasn&#39;t supposed to be there in the first lace, I told him not to go. He was so drunk the fool could barely stand, let alone shoot straight. We left him behind, Me and my son. But Kyle followed our tracks trying to catch up, we didn&#39;t even see him until after he fired his rifle at my son&quot; 
+&quot;I&#39;ll never forgive him and I&#39;ll make sure to pay him back for taking my son away from me&quot;
 
+&quot;Now I&#39;ll get you a blanket, you can [[sleep on the couch]] for tonight.&quot;</tw-passagedata><tw-passagedata pid="51" name="sleep on the couch" tags="" position="968,4232" size="100,100">The water pulled out all of your strenght from you, so you had no trouble falling asleep, but later in the night you were woken up by the howling of the wolves.
+You decide to [[go for a walk]] around the area to get some fresh air</tw-passagedata><tw-passagedata pid="52" name="go for a walk" tags="" position="967,4379" size="100,100">You decide to take a short round walk around the perimeter, when you get back you notice Kyle approaching the hut.
+[[Call out]] to Kyle to get his attention.
+Don&#39;t let Kyle notice you and [[follow him silently.]]</tw-passagedata><tw-passagedata pid="53" name="Call out" tags="" position="806,4560" size="100,100">You call out to Kyle and try to talk sense into him. Jim hears you and comes out with a rifle pointed out at Kyle. 
+(if: $metJim is true)[He [[shoots Kyle]] in the leg.]
+(else:)[He [[shoots Kyle and then your leg]]]</tw-passagedata><tw-passagedata pid="54" name="follow him silently." tags="" position="1138,4569" size="100,100">The front door is open, Kyle has already entered. You walk inside and notice that Jim&#39;s bedroom door is ajar. You approach on your tiptoes and find Kyle aiming Jim&#39;s rifle at Jim&#39;s head.
+You try to [[talk sense into Kyle.]]
+[[Tackle Kyle]] and try to take away the rifle.</tw-passagedata><tw-passagedata pid="55" name="shoots Kyle" tags="" position="705,4806" size="100,100">You hear the shot and that is like an impulse for you to charge towards Jim and tackle him to the ground. You [[get a hold of Jim&#39;s rifle-&gt;pick up Jim&#39;s hunting rifle]] and stop any further blood shed. </tw-passagedata><tw-passagedata pid="56" name="shoots Kyle and then your leg" tags="" position="878,4807" size="100,100">&quot;I knew you guys were working together, that&#39;s how you found me in the first place, didn&#39;t you?&quot; Jim says malicously. &quot;Well you get what you deserve working with this son of a bitch&quot;. He spits on Kyles lifeless body lying in a pool of blood. He turns around and [[leaves-&gt;done]] you behind.</tw-passagedata><tw-passagedata pid="57" name="pick up Jim&#39;s hunting rifle" tags="" position="128,4881" size="100,100">As you have Jim at gunpoint you can hear a Helicopter approaching. It&#39;s a rescue helicopter.
+You grab the [[flare gun from Kyle&#39;s bagpack]]</tw-passagedata><tw-passagedata pid="58" name="done" tags="" position="808,5209" size="100,100">The sharp pain in your thigh was followed by a warm stream flowing down your leg and the melting of the snow around you. It started turning the color of dark crimson in a matter of moments. After a few seconds, the wound no longer bothered you as much, the pain started to go away, so was your consciousness.
+Your heart beat started to slow down as your vision faded into darkness. You bleed out beside a stranger in a strange land, never to be discovered, cold and forgotten.</tw-passagedata><tw-passagedata pid="59" name="talk sense into Kyle." tags="" position="1024,4796" size="100,100">You talk to Kyle quietly without waking Jim. You try to explain to him that this is wrong and that he doesn&#39;t need to do this. You can see he&#39;s hesitating and he looks sidelong at you, taking his eyes off of Jim.
 Suddenly Jim jumps out of bed like a spring, straight at Kyle knocking him to the ground. Amidst the fight, the rifle slides on the floor toward you. You pick it up and
 you let them [[continue fighting]]
-you try to [[stop them]] by sending out a warning shot.</tw-passagedata><tw-passagedata pid="62" name="Tackle Kyle" tags="" position="1250,4798" size="100,100">You tackle Kyle who seemed to have no idea that you&#39;d be here. Still in shock, he was suddenly knocked to the ground by Jim. They started violently throwing fists at eachother. You just stand there and let them [[continue fighting]].</tw-passagedata><tw-passagedata pid="63" name="continue fighting" tags="" position="1145,5020" size="100,100">(set: $death = (random: 1,6))
-(if: $death &lt;= 3)[[[Kyle dies]]]
-(else:)[[[Jim dies]]]</tw-passagedata><tw-passagedata pid="64" name="stop them" tags="" position="959,5016" size="100,100">The loud bang of the rifle caused a great deal of ear pain both to you and the two strangers. You&#39;ve lost your hearing for a while, but that stopped also stopped the others from killing themselves. When the high pitched squealing stopped you noticed a strange sound, faint at first but it was getting louder every second. It was a rescue helicopter.
-You run out of the bedroom and grab a [[flare gun from Kyles bagpack]] to guide the rescue team.</tw-passagedata><tw-passagedata pid="65" name="try to scare away the wolf" tags="" position="856,2406" size="100,100">You waggle the fishing rod at the wolf, but it only makes it even worse. He starts to become more agressive and test you by repeatedly getting closer and backing away. The wolf catches the end of the fishing rod in his jaws and pulls it with great strenght, finally snapping it in half.
+you try to [[stop them]] by sending out a warning shot.</tw-passagedata><tw-passagedata pid="60" name="Tackle Kyle" tags="" position="1250,4798" size="100,100">You tackle Kyle who seemed to have no idea that you&#39;d be here. Still in shock, he was suddenly knocked to the ground by Jim. They started violently throwing fists at eachother. You just stand there and let them [[continue fighting]].</tw-passagedata><tw-passagedata pid="61" name="continue fighting" tags="" position="1145,5020" size="100,100">(set: $death = (random: 1,6))
+They fight is vicious and bloody. After half a minute they are already tired and slowing and have hurt each other badly. There&#39;s blood every where and more than once you hear the crunch of breaking bones. The places looks like a (if: $death &lt;= 3)[ [[crime scene-&gt;Kyle dies]] ](else:)[ [[crime scene-&gt;Jim dies]] ]in motion </tw-passagedata><tw-passagedata pid="62" name="stop them" tags="" position="959,5016" size="100,100">The loud bang of the rifle caused a great deal of ear pain both to you and the two strangers. You&#39;ve lost your hearing for a while, but that stopped also stopped the others from killing themselves. When the high pitched squealing stopped you noticed a strange sound, faint at first but it was getting louder every second. It was a rescue helicopter.
+You run out of the bedroom and grab a [[flare gun from Kyle&#39;s bagpack]] to guide the rescue team.</tw-passagedata><tw-passagedata pid="63" name="try to scare away the wolf" tags="" position="856,2406" size="100,100">You waggle the fishing rod at the wolf, but it only makes it even worse. He starts to become more agressive and test you by repeatedly getting closer and backing away. The wolf catches the end of the fishing rod in his jaws and pulls it with great strenght, finally snapping it in half.
 No longer threatened by you it starts to slowly approach closer and closer and when it was just a hand reach away from you, you hear a bang.
 It&#39;s Kyle. He shot the wolf with the air rifle. It&#39;s not powerful enough to do any real damage, but it stings him enough to scare the wolf away.
-You catch your breath and together you walk back to the camp and [[prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="66" name="stay quiet" tags="" position="1250,1089" size="100,100">You start to feel your heart beat inscreasing. &quot;What the hell is going on here?&quot; You think to youself. 
+You catch your breath and together you walk back to the camp and [[prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="64" name="stay quiet" tags="" position="1250,1089" size="100,100">You start to feel your heart beat inscreasing. &quot;What the hell is going on here?&quot; You think to youself. 
 Then you hear another gunshot in front of you, in the same general direction as the man that you have seen not long ago.
 (set: $KyleShot = true)
-[[run for your life]] </tw-passagedata><tw-passagedata pid="67" name="shout to get their attention" tags="" position="1444,1110" size="100,100">The man briefly turns towards you slows down, but speeds up back again into the forest.
+[[run for your life]] </tw-passagedata><tw-passagedata pid="65" name="shout to get their attention" tags="" position="1444,1110" size="100,100">The man briefly turns towards you slows down, but speeds up back again into the forest.
 You stand there puzzled and a little bit frightened.
 A few seconds later you hear another shot, followed by a warm stream flowing down your arm. You look down and you notice a red streak forming down yoru sleeve. As soon as you understand that you have been shot, you [[run for your life]] 
-(set: $PlayerShot = true)</tw-passagedata><tw-passagedata pid="68" name="pass out" tags="" position="1020,1617" size="100,100">You wake up due to a sharp pain in your arm. When you open your eyes you see a strange man beside you wrapping a scarf around your arm.
-[[converse]]</tw-passagedata><tw-passagedata pid="69" name="look after his camp" tags="" position="1336,2429" size="100,100">Kyle takes his rifle with him, while you stay sitting near the fire to get warm after a substantial blood loss.
+(set: $PlayerShot = true)</tw-passagedata><tw-passagedata pid="66" name="pass out" tags="" position="1020,1617" size="100,100">You wake up due to a sharp pain in your arm. When you open your eyes you see a strange man beside you wrapping a scarf around your arm.
+[[Talk to him]]</tw-passagedata><tw-passagedata pid="67" name="look after his camp" tags="" position="1336,2429" size="100,100">Kyle takes his rifle with him, while you stay sitting near the fire to get warm after a substantial blood loss.
 After about ten minutes you hear growling behind your back. Turn around to find a hungry lone wolf slowly walking towards you, with its bare teeth. You grab a piece of firewood hoping to scare him away, but it&#39;s no use. The wolf is too hungry to be scared away so easily. 
 You waggle the stick at the wolf, but it only makes it even worse. He starts to become more agressive and test you by repeatedly getting closer and backing away. The wolf catches the end of the stick in his jaws and pulls it with great strenght, finally snapping it out of your hands.
 No longer threatened by you it starts to slowly approach closer and closer and when it was just a hand reach away from you, you hear a bang.
 It&#39;s Kyle. He shot the wolf with the air rifle. It&#39;s not powerful enough to do any real damage, but it stings him enough to scare the wolf away.
 (set: $food = 1)
-You catch your breath and [[prepare the food brought back by Kyle-&gt;prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="70" name="lie down behind a fallen tree trunk" tags="" position="653,3502" size="100,100">You quickly take off the bag off your back and place it next to the tree trunk where you also lie down as flat as possible, trying to calm your breath.
+You catch your breath and [[prepare the food brought back by Kyle-&gt;prepare the food you brought back]]</tw-passagedata><tw-passagedata pid="68" name="lie down behind a fallen tree trunk" tags="" position="653,3502" size="100,100">You quickly take off the bag off your back and place it next to the tree trunk where you also lie down as flat as possible, trying to calm your breath.
 You hear Jim catching up to you and running around in one spot for a few moments, not far from you.
 After a while the steps start to get quieter. Jim lost your tracks.
-You get up and [[walk away]] from the direction which Jim has taken.</tw-passagedata><tw-passagedata pid="71" name="walk away" tags="" position="524,3622" size="100,100">Must have taken you an hour, before you stumbled upon an abandoned cabin.
+You get up and [[walk away]] from the direction which Jim has taken.</tw-passagedata><tw-passagedata pid="69" name="walk away" tags="" position="524,3622" size="100,100">Must have taken you an hour, before you stumbled upon an abandoned cabin.
 You get closer and almost get a heart attack. Kyle walks behind the corner of the cabin with a pile of firewood in his arms.
 
-You talk and decide that you will [[get some more firewood before nightfall-&gt;collect some firewood]].</tw-passagedata><tw-passagedata pid="72" name="Jim finds you" tags="" position="1710,288" size="100,100">(set: $metJim = true)
-Tells you to keep it down, there&#39;s a vicious pack of wolves roaming the woods.
-Helps you to your feet 
-you [[Go to his camp]]</tw-passagedata><tw-passagedata pid="73" name="Go to his camp" tags="" position="1700,437" size="100,100">His small camp has been cleared of snow
-Jim treats you injured ankle and some painkillers to keep you going
-He gives you some food
-You talk for a bit and he asks for your help
+You talk and decide that you will [[get some more firewood before nightfall-&gt;collect some firewood]].</tw-passagedata><tw-passagedata pid="70" name="Jim" tags="" position="1712,288" size="100,100">(set: $metJim = true)
+You&#39;re in a lot of pain but Jim tells you to stay callm and to keep it down, there&#39;s a vicious pack of wolves roaming the woods. They are hungry and will attack anything they can for food.
+Jim helps you to your feet and tells you that he has a camp nearby where you can rest.
+You [[Go to his camp]]</tw-passagedata><tw-passagedata pid="71" name="Go to his camp" tags="" position="1700,437" size="100,100">His small camp has been cleared of snow
+Jim treats you injured ankle and gives you some painkillers to keep you going
+He gives you some food and something to drink.
+&quot;What the hell are you doing out here?&quot; he asks. You explain that this was supposed to be a shortcut home to seee your family and he laughs at that. Whe nyou ask him what he&#39;s doing out here he pauses for a while. &quot;There&#39;s a dangerous man hiding in these woods and I intend to find him&quot; he says, &quot;I&#39;m not leaving here until I do&quot;.
+&quot;But it&#39;s not been easy, and I could use some help. If you help me stop capture this guy I will help get out of these woods&quot;
 
-[[You decide to help Jim]] and he thanks you. He tells you to get some sleep because you&#39;ll have an early start tomorrow.
+[[You decide to help Jim]] and he thanks you. 
 
-[[You say that you can&#39;t help him]], you just want to get home.</tw-passagedata><tw-passagedata pid="74" name="You decide to help Jim" tags="" position="1817,603" size="100,100">Jim wakes you and gives you something to eat and a hot drink.
+[[You say that you can&#39;t help him]], you just want to get home. Jim looks disappointed but says that you&#39;re welcome to spend the night at his camp.</tw-passagedata><tw-passagedata pid="72" name="You decide to help Jim" tags="" position="1817,603" size="100,100">Jim tells you about Kyle. How he is a dangerous murderer and criminal. He describes a monster, as evil as one could be. He describes how he looks to and tells you that tomorrow he hopes to finally catch him with your help.
+
+Then he tells you to get some sleep, you have an early start in the morning.
+
+In the morning, Jim wakes you and gives you something to eat and a hot drink.
 Once you&#39;ve both eaten Jim gives you a walkie talkie.
 He tells you to walk South until you hit a stream, then follow that stream and keep him updated. He tells you that if you see Kyle to radio him immediately and not to talk to Kyle or let him see you. 
-[[You head South]]</tw-passagedata><tw-passagedata pid="75" name="You say that you can&#39;t help him" tags="" position="1669,600" size="100,100">You awake to the sound of a gunshot in the distance.
+[[You head South]]</tw-passagedata><tw-passagedata pid="73" name="You say that you can&#39;t help him" tags="" position="1669,600" size="100,100">You awake to the sound of a gunshot in the distance.
 Jim is gone.
-You test how your injured ankle feels. It is much better and your&#39;e able to walk around though it causes you to wince a little.
+You test how your injured ankle feels. It is much better and you&#39;re able to walk around though it causes you to wince a little.
 
-[[You decide to inspect the source of the gunshot]]</tw-passagedata><tw-passagedata pid="76" name="You head South" tags="" position="1901,751" size="100,100">You follow Jims directions until you meet the stream Jim told you about then you walk along it following the flow of water which somehow hasn&#39;t frozen off. The snow isn&#39;t as heavy here as it has been and you make decent progress. 
-As your walking you see a figure appear from the treeline a little ways ahead of you. He doesn&#39;t spot you. He walks following the direction of the stream as just as you were. [[You follow him]].</tw-passagedata><tw-passagedata pid="77" name="You follow him" tags="" position="1901,901" size="100,100">The man must be Kyle. He&#39;s exactly as Jim described him. He&#39;s carrying a fishing rod and follows the stream until it pours into a small pool. Here he casts his line to try to cath some fish.
+[[You decide to inspect the source of the gunshot]]</tw-passagedata><tw-passagedata pid="74" name="You head South" tags="" position="1901,751" size="100,100">You follow Jims directions until you meet the stream Jim told you about then you walk along it following the flow of water which somehow hasn&#39;t frozen off. The snow isn&#39;t as heavy here as it has been and you make decent progress. 
+As your walking you see a figure appear from the treeline a little ways ahead of you. He doesn&#39;t spot you. He walks following the direction of the stream as just as you were. [[You follow him]].</tw-passagedata><tw-passagedata pid="75" name="You follow him" tags="" position="1901,901" size="100,100">The man must be Kyle. He&#39;s exactly as Jim described him. He&#39;s carrying a fishing rod and follows the stream until it pours into a small pool. Here he casts his line to try to cath some fish.
+
 [[Quietly radio Jim]]
-[[Stay out of sight and wait]]
-[[You try to talk to Kyle]]</tw-passagedata><tw-passagedata pid="78" name="Quietly radio Jim" tags="" position="2030,1140" size="100,100">You whisper where you are into the radio to Jim. He&#39;s glad you found him and reminds you not to go near Kyle and not to let Kyle see you. 
+
+[[You try to talk to Kyle]]</tw-passagedata><tw-passagedata pid="76" name="Quietly radio Jim" tags="" position="1774,1019" size="100,100">You whisper where you are into the radio to Jim. He&#39;s glad you found him and reminds you not to go near Kyle and not to let Kyle see you. 
 Jim tells you to head North until you hit a dirt road and to wait there.
+
 [[Go North]]
-[[Stay out of sight and wait]] 
-[[You try to talk to Kyle]] </tw-passagedata><tw-passagedata pid="79" name="Stay out of sight and wait" tags="" position="1877,1282" size="100,100">You quietly watch Kyle. It&#39;s not long before he manages to catch a decent sized fish.
-With what looks like his supper in hand, he walks back up stream. You quietly follow him once again. He cuts back into the woods away from the stream where you first spotted him. You follow Kyle for another 10 or 15 minutes when you suddenly trip over an unseen obstactle and tumble out into full view. Kyle has spotted you but he also doesn&#39;t seem surprised that you&#39;re behind him. He&#39;s obviously been aware you were following him for some time.
-[[converse]] </tw-passagedata><tw-passagedata pid="80" name="You try to talk to Kyle" tags="" position="1735,1204" size="100,100">You walk towards Kyle and call out to get his attention.
+
+[[You try to talk to Kyle]] </tw-passagedata><tw-passagedata pid="77" name="You try to talk to Kyle" tags="" position="2132,1273" size="100,100">You walk towards Kyle and call out to get his attention.
 He turns around quickly and and spots you coming towards him. Fear spreads across his face and he sprints into the trees. 
 You run after him as trying to keep up with him as he runs into thicker snow. You call out to him again trying to get him to stop.
 As you chase him you hear a gunshot and your arm burns with intense pain. You&#39;ve been shot! But it wasn&#39;t Kyle, you don&#39;t know where the shot came from.
-Someone is trying to kill you. You forget about Kyle and [[run for your life]] into the woods away from the sound of the gunfire.</tw-passagedata><tw-passagedata pid="81" name="Go North" tags="" position="1594,1033" size="100,100">You quietly slink into the trees, leaving Kyle behind and being sure that he never saw you. You head north through the snow which has become thicker once more, hampering you somewhat.
+Someone is trying to kill you. You forget about Kyle and [[run for your life]] into the woods away from the sound of the gunfire.</tw-passagedata><tw-passagedata pid="78" name="Go North" tags="" position="1594,1033" size="100,100">You quietly slink into the trees, leaving Kyle behind and being sure that he never saw you. You head north through the snow which has become thicker once more, hampering you somewhat.
 You eventually reach the dirt road that Jim told you about.
-You wait here for some time until you see a man run onto the road some distance away from you. You [[shout to get their attention]] </tw-passagedata><tw-passagedata pid="82" name="leave fish" tags="" position="1044,2412" size="100,100">(set: $food = 0)
-You decided to leave the food behind and [[get back to camp-&gt;eat]].</tw-passagedata><tw-passagedata pid="83" name="[Kyle dies" tags="" position="1075,5159" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="84" name="[Jim dies" tags="" position="1241,5164" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="85" name="Shoot rabbits" tags="" position="558,2239" size="100,100">(set: $counter to 3)
+You wait here for some time until you see a man run onto the road some distance away from you. You [[shout to get their attention]] </tw-passagedata><tw-passagedata pid="79" name="leave fish" tags="" position="1044,2412" size="100,100">(set: $food = 0)
+You decided to leave the food behind and [[get back to camp-&gt;eat]].</tw-passagedata><tw-passagedata pid="80" name="Kyle dies" tags="" position="1075,5159" size="100,100">At this point Kyle isn&#39;t moving anymore, but Jim keeps punching and kicking what&#39;s left of Kyles skull. His lifeless body lying in a pool of it&#39;s own blood.
+
+You&#39;re memory becomes hazy after this, probably due to the shock of what of what you have witnessed. You can only vaguely recall the fact that Jim led you to the edge of the forest and pointed you towards the nearest town, with Kyles dried blood still covering his clothes.</tw-passagedata><tw-passagedata pid="81" name="Jim dies" tags="" position="1241,5164" size="100,100">At this point Jim isn&#39;t moving anymore, but Kyle keeps punching and kicking what&#39;s left of Jim&#39;s skull. His lifeless body lying in a pool of it&#39;s own blood.
+
+You&#39;re memory becomes hazy after this, probably due to the shock of what of what you have witnessed. You can only vaguely recall the fact that Kyle led you to the edge of the forest and pointed you towards the nearest town, with Jim&#39;s dried blood still covering his clothes.</tw-passagedata><tw-passagedata pid="82" name="Shoot rabbits" tags="" position="558,2239" size="100,100">(set: $counter to 3)
 You notice a rabbit! QUICK shoot it! |amount&gt;[$counter]
 
 (live: 1s)[
@@ -224,12 +245,12 @@ You notice a rabbit! QUICK shoot it! |amount&gt;[$counter]
 	(if: $counter &gt; 0)[(link-goto: &quot;shoot&quot;, &quot;catch rabbit&quot;)
 	(replace: ?amount)[$counter]](if: $counter &lt; 1)[(link-goto: &quot;shoot&quot;, &quot;miss rabbit&quot;)
 	(replace: ?amount)[0]]
-]</tw-passagedata><tw-passagedata pid="86" name="catch rabbit" tags="" position="509,2382" size="100,100">Congrats you&#39;ve caught a rabbit
+]</tw-passagedata><tw-passagedata pid="83" name="catch rabbit" tags="" position="509,2382" size="100,100">Congrats you&#39;ve caught a rabbit
 (set: $food = $food + 1)
 
 (if: $food &gt; 3)[ You finish packing the food you caught when suddenly you hear [[screams-&gt;hear screams]] coming from Kyle&#39;s camp]
-(else:)[ [[look for more food]] ]</tw-passagedata><tw-passagedata pid="87" name="miss rabbit" tags="" position="662,2364" size="100,100">You missed your shot
-[[look for another rabbit-&gt;Shoot rabbits]]</tw-passagedata><tw-passagedata pid="88" name="look for more food" tags="" position="344,2442" size="100,100">[[Shoot rabbits]]</tw-passagedata><tw-passagedata pid="89" name="shoot it" tags="" position="500,4586" size="100,100">(set: $counter to 3)
+(else:)[ [[look for more food]] ]</tw-passagedata><tw-passagedata pid="84" name="miss rabbit" tags="" position="662,2364" size="100,100">You missed your shot
+[[look for another rabbit-&gt;Shoot rabbits]]</tw-passagedata><tw-passagedata pid="85" name="look for more food" tags="" position="344,2442" size="100,100">[[Shoot rabbits]]</tw-passagedata><tw-passagedata pid="86" name="shoot it" tags="" position="496,4498" size="100,100">(set: $counter to 3)
 You notice a rabbit! QUICK shoot it! |amount&gt;[$counter]
 
 (live: 1s)[
@@ -237,8 +258,8 @@ You notice a rabbit! QUICK shoot it! |amount&gt;[$counter]
 	(if: $counter &gt; 0)[(link-goto: &quot;shoot&quot;, &quot;catch&quot;)
 	(replace: ?amount)[$counter]](if: $counter &lt; 1)[(link-goto: &quot;shoot&quot;, &quot;miss&quot;)
 	(replace: ?amount)[0]]
-]</tw-passagedata><tw-passagedata pid="90" name="miss" tags="" position="638,4657.5" size="100,100">You missed your shot
-[[look for another rabbit-&gt;shoot it]]</tw-passagedata><tw-passagedata pid="91" name="look for more" tags="" position="348,4667.5" size="100,100">[[shoot it]]</tw-passagedata><tw-passagedata pid="92" name="catch" tags="" position="498,4736" size="100,100">Congrats you&#39;ve caught a rabbit
+]</tw-passagedata><tw-passagedata pid="87" name="miss" tags="" position="638,4657" size="100,100">You missed your shot
+[[look for another rabbit-&gt;shoot it]]</tw-passagedata><tw-passagedata pid="88" name="look for more" tags="" position="348,4667" size="100,100">[[shoot it]]</tw-passagedata><tw-passagedata pid="89" name="catch" tags="" position="498,4736" size="100,100">Congrats you&#39;ve caught a rabbit
 (set: $food = $food + 1)
 
 (if: $food &gt; 3)[ You finish packing the food you caught and decide to [[return to the cabin-&gt;return to the cabin]]]
